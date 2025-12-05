@@ -48,3 +48,9 @@ htmlcov/
 
 # Logs
 *.log
+
+# Local .terraform directories
+**/.terraform/
+
+# Terraform state files
+*.tfstate

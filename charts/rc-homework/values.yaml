@@ -9,19 +9,19 @@ replicaCount: 1
 image:
   repository: nginx
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 1.21-latest
+  tag: latest
 
 
 resources:
-  requests:
+  limits:
     memory: 512Mi
     cpu: 500m
-  limits:
+  requests:
     memory: 256Mi
     cpu: 250m
 
 service:
   type: ClusterIP
-  port: 80
-  targetPort: 8080
-  protocol: tcp
+  sourcePort: 80
+  targetPort: 80
+  protocol: TCP
