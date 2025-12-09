@@ -37,7 +37,7 @@ Initialized and applied Terraform and it was successful to create namespace reso
     ```
     - Resolved by:
         - Change `service.protocol` value from `tcp` to `TCP`
-        - Update `service.port` value to be `service.sourcePort` since that is the value name being used to set in service 
+        - Update `service.sourcePort` in `service.yaml` to `service.port` since that is the name of the value
         - Change `service.targetPort` value from `8080` to `80` so it will match Deployments `containerPort`
 
 4. Invalid nginx image tag
