@@ -41,7 +41,7 @@ Initialized and applied Terraform and it was successful to create namespace reso
         - Change `service.targetPort` value from `8080` to `80` so it will match Deployments `containerPort`
 
 4. Invalid nginx image tag
-    - `helm install rc-app .` will deploy successfully, but pod will not start because of `ImagePullBackOff` error.
+    - `helm install rc-app . -n rc-homework` will deploy successfully, but pod will not start because of `ImagePullBackOff` error.
     - Pod events will show problem
     ```bash
     k describe pod rc-app-rc-homework-84f9c7f655-g7x9m
@@ -121,3 +121,12 @@ Commercial support is available at
 </html>
 ```
 
+Additionally we can use `kubectl port-forward` to make a temporary connection between our local machine and the service so we can access the application locally.
+```bash
+k port-forward service/rc-app-rc-homework 8080:80
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+Handling connection for 8080
+```
+
+![Nginx Homepage Screenshot](<nginx_homepage.png>)
